@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HiHome, HiPhotograph } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import {
@@ -13,12 +13,15 @@ import { GiHeavyBullets } from "react-icons/gi";
 import { AiTwotoneSetting } from "react-icons/ai";
 
 const Sidebar = () => {
-  const Links: Array<any> = [
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
+
+  const Links = [
     {
       title: "Build",
       link: [
         {
-          name: "Authencation",
+          name: "Authentication",
           icon: <FaUserFriends />,
           path: "/",
         },
@@ -74,7 +77,7 @@ const Sidebar = () => {
 
   // console.log(2121, Links);
   return (
-    <div className="bg-primary text-white max-w-xs pb-4 static">
+    <div className="bg-primary text-white min-w-xs pb-4 static">
       <h2 className=" text-2xl py-5 px-6 font-medium ">Paperbase</h2>
       <hr className="opacity-25" />
       <div className="flex py-3 px-6 text-base font-medium text-grey-light ">
