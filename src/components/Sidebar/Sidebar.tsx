@@ -47,9 +47,9 @@ const Sidebar = () => {
           path: "/function",
         },
         {
-          name: "Machine Learning",
+          name: "Products",
           icon: <GiHeavyBullets />,
-          path: "/ml",
+          path: "/products",
         },
       ],
     },
@@ -77,7 +77,7 @@ const Sidebar = () => {
 
   // console.log(2121, Links);
   return (
-    <div className="bg-primary text-white min-w-xs pb-4 static">
+    <div className="bg-primary text-white min-w-xs pb-4 static w-72 h-full top-0 left-0">
       <h2 className=" text-2xl py-5 px-6 font-medium ">Paperbase</h2>
       <hr className="opacity-25" />
       <div className="flex py-3 px-6 text-base font-medium text-grey-light ">

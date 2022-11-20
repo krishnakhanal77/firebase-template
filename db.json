@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Samsung M12",
+      "category": "mobile",
+      "price": "19000",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Samsung m32",
+      "category": "mobile",
+      "price": "29000",
+      "status": "inactive"
+    },
+    {
+      "id": 3,
+      "name": "Samsung s21",
+      "category": "mobile",
+      "price": "190000",
+      "status": "active"
+    }
+  ]
+ 
+}

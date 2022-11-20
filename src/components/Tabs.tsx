@@ -1,91 +1,69 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Users from "../pages/Authentication/Users";
+import User from "./User";
 
 export function Tabs() {
-  const [active, setActive] = useState(0);
-  console.log(active);
+  const [tabs, setTabs] = useState([
+    {
+      id: "1",
+      label: "User",
+      selected: true,
+    },
+    {
+      id: "2",
+      label: "Sign-in method",
+      selected: false,
+    },
+    {
+      id: "3",
+      label: "Template",
+      selected: false,
+    },
+    {
+      id: "4",
+      label: "Usages",
+      selected: false,
+    },
+  ]);
   return (
-    <>
-      <div>
-        <ul className="flex space-x-3 bg-secondary px-6 leading-[4rem]">
-          <li>
-            <button
-              className={
-                active === 1
-                  ? "border-b-4 text-white"
-                  : "border-transparent text-grey-light"
-              }
-              onClick={() => setActive(1)}
-            >
-              User
-            </button>
-          </li>
-          <li>
-            <button
-              className={
-                active === 2
-                  ? "border-b-white text-white"
-                  : "border-transparent text-grey-light"
-              }
-              onClick={() => setActive(2)}
-            >
-              Sign-in method
-            </button>
-          </li>
-          <li>
-            <button
-              className={
-                active === 3
-                  ? "border-b-white text-white"
-                  : "border-transparent text-grey-light"
-              }
-              onClick={() => setActive(3)}
-            >
-              Templates
-            </button>
-          </li>
-          <li>
-            <button
-              className={
-                active === 4
-                  ? "border-b-white text-white"
-                  : "border-transparent text-grey-light"
-              }
-              onClick={() => setActive(4)}
-            >
-              Usages
-            </button>
-          </li>
-        </ul>
-        <div>
-          {active === 1 && <Users />}
-          {active === 2 && ""}
-          {active === 3 && ""}
-          {active === 4 && ""}
-        </div>
-
-        {/* <div className="flex space-x-3 border-b bg-secondary">
-          {tabsData.map((tab, idx) => {
-            return (
+    <div>
+      <ul className="flex space-x-3 bg-secondary px-6 leading-[4rem]">
+        {tabs?.map((tab: any) => {
+          return (
+            <div>
               <button
-                key={idx}
-                className={`py-2 mx-6 border-b-4 leading-8 transition-colors duration-300 text-base font-medium ${
-                  idx === activeTabIndex
-                    ? "border-b-white text-white"
+                className={
+                  tab.selected
+                    ? "border-b-4 text-white"
                     : "border-transparent text-grey-light"
-                }`}
-                // Change the active tab on click.
-                onClick={() => setActiveTabIndex(idx)}
+                }
+                onClick={() => {
+                  const temp = tabs.map((t) => {
+                    return {
+                      ...t,
+                      selected: tab.id === t.id ? true : false,
+                    };
+                  });
+                  setTabs(temp);
+                }}
               >
                 {tab.label}
               </button>
-            );
-          })}
-        </div>
-        <p>{tabsData[activeTabIndex].content}</p> */}
+            </div>
+          );
+        })}
+      </ul>
+      <div>
+        {tabs.map((td) => {
+          return (
+            <div>
+              {td.selected === true && td.label === "User" ? <User /> : ""}
+            </div>
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 }
 

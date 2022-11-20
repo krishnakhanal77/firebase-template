@@ -5,15 +5,11 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div>
-      <div className="flex">
-        <div className=" min-w-[17.6rem] ">
-          <Sidebar />
-        </div>
-        <div className="w-full">
-          <ProfileHeader />
-          <Outlet />
-        </div>
+    <div className="flex">
+      <Sidebar />
+      <div className="w-full">
+        <ProfileHeader />
+        <Outlet />
       </div>
     </div>
   );
